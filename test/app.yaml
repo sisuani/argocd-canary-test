@@ -6,19 +6,19 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: 'https://github.com/sisuani/argocd-canary-test'
+      repoURL: 'https://github.com/argoproj/rollouts-demo'
       revision: HEAD
       directories:
-      - path: 'demo'
+      - path: 'examples/base/canary'
   template:
     metadata:
       name: demo
     spec:
       project: default
       source:
-        repoURL: 'https://github.com/sisuani/argocd-canary-test'
+        repoURL: 'https://github.com/argoproj/rollouts-demo'
         targetRevision: HEAD
-        path: 'demo'
+        path: 'examples/base/canary'
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: test
