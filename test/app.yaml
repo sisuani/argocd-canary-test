@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: 'https://github.com/sisuani/argocd-canary-test'
+      revision: HEAD
+      directories:
+      - path: 'demo'
+  template:
+    metadata:
+      name: guestbook
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/sisuani/argocd-canary-test'
+        targetRevision: HEAD
+        path: 'demo'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: test
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
