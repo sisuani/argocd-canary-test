@@ -11,7 +11,7 @@ spec:
     path: 'examples/rollouts-demo'
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default
+    namespace: demo
   syncPolicy:
     automated:
       prune: true
