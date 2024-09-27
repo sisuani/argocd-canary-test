@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: rollouts-demo
+  name: demo
   namespace: argocd
 spec:
-  project: default
+  project: demo
   source:
     repoURL: 'https://github.com/argoproj/argo-rollouts'
     targetRevision: HEAD
-    path: 'examples/rollouts-demo'
+    path: 'examples/rollout-analysis-step.yaml'
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: demo
