@@ -26,27 +26,3 @@ spec:
         automated:
           prune: true
           selfHeal: true
-      rollout:
-        apiVersion: argoproj.io/v1alpha1
-        kind: Rollout
-        metadata:
-          name: rollout-analysis
-          namespace: default
-        spec:
-          replicas: 5
-          strategy:
-            canary:
-              steps:
-                - setWeight: 20
-                - pause:
-                    duration: 30s
-                - setWeight: 100
-          template:
-            metadata:
-              labels:
-                app: rollout-analysis
-            spec:
-              containers:
-                - name: rollout-app
-                  image: argoproj/rollouts-demo:blue
-
