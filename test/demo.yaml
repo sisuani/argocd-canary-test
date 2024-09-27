@@ -18,7 +18,7 @@ spec:
       source:
         repoURL: 'https://github.com/argoproj/argo-rollouts'
         targetRevision: HEAD
-        path: 'examples/rollout-analysis-step.yaml'
+        path: 'examples'
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: default
